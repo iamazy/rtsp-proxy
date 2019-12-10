@@ -1,7 +1,7 @@
 ### 简易rtsp代理
 
 ### 请求方式
->> [POST] http://localhost:8686/stream/proxy
+>[POST] http://localhost:8686/stream/proxy
 ```json
 {
 	"url":"rtsp://x.x.x.x:554/xxx",
