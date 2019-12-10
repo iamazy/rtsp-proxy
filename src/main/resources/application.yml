@@ -1,0 +1,18 @@
+#rpc:
+#  enabled: true
+#  pools:
+#    x-pack:
+#      category: thrift
+#      max-total: 1000
+#      max-idle-per-key: 1000
+#      max-total-per-key: 1000
+#      min-idle-per-key: 10
+#      test-on-borrow: false
+#      min-evictable-idle-time-millis: 3000000
+#      soft-min-evictable-idle-time-millis: 3000000
+#      jmx-enabled: false
+#      server-host-and-ports:
+#        - 10.10.2.84:8887
+
+server:
+  port: 8686
