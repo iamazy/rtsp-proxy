@@ -12,9 +12,7 @@
 >返回值
 ```json
 {
-    "password": "12345",
     "streamId": "5deef6126423ad3cc8ce112e",
     "url": "rtsp://localhost:53882/5deef6126423ad3cc8ce112e",
-    "username": "admin"
 }
 ```
