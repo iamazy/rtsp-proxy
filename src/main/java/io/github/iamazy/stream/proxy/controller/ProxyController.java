@@ -27,8 +27,6 @@ public class ProxyController {
             if (CoreConstants.ORIGIN_URL_CACHE.containsKey(originUrl)) {
                 String streamId = CoreConstants.ORIGIN_URL_CACHE.get(originUrl);
                 map.put("url", CoreConstants.RTSP_PROXY_CACHE.get(streamId).getProxyUrl());
-                map.put("username", CoreConstants.RTSP_PROXY_CACHE.get(streamId).getUsername());
-                map.put("password", CoreConstants.RTSP_PROXY_CACHE.get(streamId).getPassword());
                 map.put("streamId", CoreConstants.RTSP_PROXY_CACHE.get(streamId).getStreamId());
                 return new ResponseEntity<>(map, HttpStatus.OK);
             }
@@ -37,8 +35,6 @@ public class ProxyController {
             CoreConstants.ORIGIN_URL_CACHE.put(originUrl, rtspProxy.getStreamId());
             IceProxy iceProxy = new IceProxy(rtspProxy);
             map.put("url", rtspProxy.getProxyUrl());
-            map.put("username", rtspProxy.getUsername());
-            map.put("password", rtspProxy.getPassword());
             map.put("streamId", rtspProxy.getStreamId());
             iceProxy.start();
             return new ResponseEntity<>(map, HttpStatus.OK);

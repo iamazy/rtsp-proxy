@@ -10,6 +10,7 @@ import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.HttpRequestEncoder;
 
+import java.util.Base64;
 import java.util.Date;
 
 
@@ -26,7 +27,7 @@ public class IceProxyFrontendHandler extends ChannelInboundHandlerAdapter {
 
     private EmbeddedChannel embeddedChannel;
 
-    public IceProxyFrontendHandler(RtspProxy proxyClient) {
+    IceProxyFrontendHandler(RtspProxy proxyClient) {
         this.proxyClient = proxyClient;
     }
 
@@ -107,6 +108,8 @@ public class IceProxyFrontendHandler extends ChannelInboundHandlerAdapter {
             if (rtspProxy != null) {
                 request.setUri(rtspProxy.getSrcUrl());
             }
+            request.headers().remove("Authorization");
+            request.headers().add("Authorization", "Basic "+ Base64.getEncoder().encodeToString((proxyClient.getUsername()+":"+proxyClient.getPassword()).getBytes()));
         }
     }
 }

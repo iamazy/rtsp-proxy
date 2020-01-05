@@ -22,7 +22,7 @@ public class IceProxyInitializer extends ChannelInitializer<SocketChannel> {
 
     private final RtspProxy proxyClient;
 
-    public IceProxyInitializer(RtspProxy proxyClient) {
+    IceProxyInitializer(RtspProxy proxyClient) {
         this.proxyClient = proxyClient;
     }
 

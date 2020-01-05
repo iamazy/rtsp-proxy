@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.github.iamazy.stream.proxy</groupId>
-    <artifactId>rtsp-proxy</artifactId>
+    <artifactId>rtsp-proxy-simple</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>rtsp-proxy</name>
+    <name>rtsp-proxy-simple</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

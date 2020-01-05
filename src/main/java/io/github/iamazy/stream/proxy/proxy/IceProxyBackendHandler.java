@@ -14,7 +14,7 @@ public class IceProxyBackendHandler extends ChannelInboundHandlerAdapter {
 
     private final Channel inboundChannel;
 
-    public IceProxyBackendHandler(Channel inboundChannel){
+    IceProxyBackendHandler(Channel inboundChannel){
         this.inboundChannel=inboundChannel;
     }
 
