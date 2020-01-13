@@ -41,6 +41,7 @@ public class RtspProxy {
         this.password = source.get("password").toString();
         this.localIp = CoreConstants.IP;
         this.localPort = SocketUtils.randomPort();
+        CoreConstants.IP_PORT_SRC_URL_CACHE.put(CoreConstants.OUTSIDE_IP+":"+localPort,srcUrl);
         this.streamId = CoreConstants.OBJECT_ID_GENERATOR.generate().toString();
         Matcher matcher = CoreConstants.RTSP_IP_PORT_PATTERN.matcher(srcUrl);
         while (matcher.find()) {

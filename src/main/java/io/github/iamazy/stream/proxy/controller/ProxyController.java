@@ -75,6 +75,8 @@ public class ProxyController {
         if (idRouting != null) {
             CoreConstants.ORIGIN_URL_CACHE.remove(idRouting);
         }
+        RtspProxy rtspProxy = CoreConstants.RTSP_PROXY_CACHE.get(threadName);
+        CoreConstants.IP_PORT_SRC_URL_CACHE.remove(CoreConstants.OUTSIDE_IP+":"+rtspProxy.getLocalPort());
         CoreConstants.RTSP_PROXY_CACHE.remove(threadName);
         return "流成功关闭";
     }

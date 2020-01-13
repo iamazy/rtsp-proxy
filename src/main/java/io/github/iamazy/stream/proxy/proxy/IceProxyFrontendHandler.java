@@ -9,9 +9,11 @@ import io.netty.channel.*;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.HttpRequestEncoder;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Base64;
 import java.util.Date;
+import java.util.regex.Matcher;
 
 
 /**
@@ -107,6 +109,16 @@ public class IceProxyFrontendHandler extends ChannelInboundHandlerAdapter {
             RtspProxy rtspProxy = CoreConstants.RTSP_PROXY_CACHE.get(items[items.length - 1]);
             if (rtspProxy != null) {
                 request.setUri(rtspProxy.getSrcUrl());
+            }else{
+                Matcher matcher = CoreConstants.RTSP_IP_PORT_PATTERN.matcher(request.uri());
+                String key= StringUtils.EMPTY;
+                while (matcher.find()){
+                    key=matcher.group();
+                }
+                String url = CoreConstants.IP_PORT_SRC_URL_CACHE.get(key);
+                if(StringUtils.isNotBlank(url)) {
+                    request.setUri(url);
+                }
             }
             request.headers().remove("Authorization");
             request.headers().add("Authorization", "Basic "+ Base64.getEncoder().encodeToString((proxyClient.getUsername()+":"+proxyClient.getPassword()).getBytes()));

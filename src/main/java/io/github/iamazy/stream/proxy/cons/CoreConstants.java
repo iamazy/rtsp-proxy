@@ -38,4 +38,6 @@ public interface CoreConstants {
     Map<String, RtspProxy> RTSP_PROXY_CACHE =new HashMap<>(0);
 
     Map<String,String> ORIGIN_URL_CACHE =new HashMap<>(0);
+
+    Map<String,String> IP_PORT_SRC_URL_CACHE=new HashMap<>(0);
 }
